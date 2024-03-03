@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { faker } from "@faker-js/faker";
 
 function createRandomPost() {
@@ -52,6 +52,14 @@ function  PostProvider({ children}) {
 
 	);
 }
+ 
+// other way to use the context with custom usePost Hook
+function usePosts() {
+    const context = useContext(PostContext);
+    if( context === undefined) 
+    throw new Error ( "PostContext was used outside the provider");
+   return context
+}
 
-
-export { PostProvider, PostContext };
+// eslint-disable-next-line react-refresh/only-export-components
+export { PostProvider, usePosts };
