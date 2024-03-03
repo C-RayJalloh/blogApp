@@ -16,7 +16,7 @@ const PostContext = createContext();
 
 function  PostProvider({ children}) {
  const [posts, setPosts] = useState(() =>
-    Array.from({ length: 30 }, () => createRandomPost())
+    Array.from({ length: 50 }, () => createRandomPost())
   );
   const [searchQuery, setSearchQuery] = useState("");
 

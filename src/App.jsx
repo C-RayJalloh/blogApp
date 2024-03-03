@@ -52,7 +52,7 @@ function Header() {
   return (
     <header>
       <h1>
-        <span>⚛️</span>The Atomic Blog
+        <span>💻</span>The Blog App
       </h1>
       <div>
         <Results  />
@@ -82,7 +82,7 @@ function Results() {
   
   const { posts} = usePosts();
 
-  return <p>🚀 {posts.length} atomic posts found</p>;
+  return <p>🚀 {posts.length} blog posts found</p>;
 }
 
 function Main() {
