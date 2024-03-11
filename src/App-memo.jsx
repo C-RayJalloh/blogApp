@@ -200,7 +200,7 @@ const Archive = memo(function Archive({ archiveOptions, onAddPost }) {
 });
 
 function Footer() {
-  return <footer>&copy; by The Atomic Blog ✌️</footer>;
+  return <footer>&copy; The Blog App by Ray Jahrulo ✌️</footer>;
 }
 
 export default App;
