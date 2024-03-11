@@ -11,7 +11,7 @@ function createRandomPost() {
 
 function App() {
   const [posts, setPosts] = useState(() =>
-    Array.from({ length: 30 }, () => createRandomPost())
+    Array.from({ length: 100 }, () => createRandomPost())
   );
   const [searchQuery, setSearchQuery] = useState("");
   const [isFakeDark, setIsFakeDark] = useState(false);
@@ -80,7 +80,7 @@ function Header({ posts, onClearPosts, searchQuery, setSearchQuery }) {
   return (
     <header>
       <h1>
-        <span>⚛️</span>The Atomic Blog
+        <span>💻</span>The Blog App
       </h1>
       <div>
         <Results posts={posts} />
@@ -105,7 +105,7 @@ function SearchPosts({ searchQuery, setSearchQuery }) {
 }
 
 function Results({ posts }) {
-  return <p>🚀 {posts.length} atomic posts found</p>;
+  return <p>🚀 {posts.length} posts found automatically</p>;
 }
 
 function Main({ posts, onAddPost }) {
