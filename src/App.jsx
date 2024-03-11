@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import {  useEffect, useState } from "react";
+import {  useEffect, useState, memo } from "react";
 import { PostProvider, usePosts } from "./PostContext";
 import { faker } from "@faker-js/faker";
 
@@ -85,7 +85,7 @@ function Results() {
   return <p>🚀 {posts.length} blog posts found</p>;
 }
 
-function Main() {
+const Main = memo(function Main() {
 
 const { posts, onAddPost} = usePosts();
 
@@ -95,7 +95,7 @@ const { posts, onAddPost} = usePosts();
       <Posts posts={posts} />
     </main>
   );
-}
+});
 
 function Posts() {
 

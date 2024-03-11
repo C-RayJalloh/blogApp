@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
 import { faker } from "@faker-js/faker";
 
 function createRandomPost() {
@@ -36,24 +36,29 @@ function  PostProvider({ children}) {
 
   function handleClearPosts() {
     setPosts([]);
+    setSearchQuery('');
   }
+
+  // used memo inother to optimize the performance and prevent wasted re-renders
+const value = useMemo(() => {
+   return {posts: searchedPosts,
+   onAddPost: handleAddPost,
+   onClearPosts: handleClearPosts,
+   searchQuery,
+   setSearchQuery,
+ }
+}, [searchQuery, searchedPosts])
 
 	return (
  <PostContext.Provider
-      value={{
-        posts: searchedPosts,
-        onAddPost: handleAddPost,
-        onClearPosts: handleClearPosts,
-        searchQuery,
-        setSearchQuery,
-      }}
+      value={value}
     > {children }</PostContext.Provider>
 
 
 	);
 }
  
-// other way to use the context with custom usePost Hook
+// custom usePost Hook
 function usePosts() {
     const context = useContext(PostContext);
     if( context === undefined) 
