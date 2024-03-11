@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { createContext, useContext, useMemo, useState } from "react";
+import { createContext, useContext, useMemo, useState, useCallback } from "react";
 import { faker } from "@faker-js/faker";
 
 function createRandomPost() {
@@ -30,9 +30,11 @@ function  PostProvider({ children}) {
         )
       : posts;
 
-  function handleAddPost(post) {
-    setPosts((posts) => [post, ...posts]);
-  }
+  const handleAddPost = useCallback(
+    function handleAddPost(post) {
+      setPosts((posts) => [post, ...posts]);
+    }
+    ,[])
 
   function handleClearPosts() {
     setPosts([]);
@@ -47,7 +49,7 @@ const value = useMemo(() => {
    searchQuery,
    setSearchQuery,
  }
-}, [searchQuery, searchedPosts])
+}, [searchQuery, searchedPosts, handleAddPost])
 
 	return (
  <PostContext.Provider
