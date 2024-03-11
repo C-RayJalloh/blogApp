@@ -192,7 +192,7 @@ const { onAddPost} = usePosts();
 }
 
 function Footer() {
-  return <footer>&copy; The Blog App by Ray Jahrulo ✌️</footer>;
+  return <footer>&copy; 2024 The Blog App by Ray Jahrulo ✌️</footer>;
 }
 
 export default App;
