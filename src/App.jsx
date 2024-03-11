@@ -182,7 +182,7 @@ const { onAddPost} = usePosts();
               <p>
                 <strong>{post.title}:</strong> {post.body}
               </p>
-              <button onClick={() => onAddPost(post)}>Add as new post</button>
+              <button onClick={() => onAddPost(post)}>Add new post</button>
             </li>
           ))}
         </ul>
